@@ -1,4 +1,4 @@
-import React from 'react, {useId}';
+import React, {useId} from 'react'
 
 function InputBox({
     label,
@@ -11,22 +11,22 @@ function InputBox({
     currencyDisable = false,
     className = "",
 }) {
-    const amountInputId = useId()
+   const amountInputId = useId()
 
     return (
-        <div className={`bg-white p-3 rounded-lg text-sm flex `}>
+        <div className={`bg-white p-3 rounded-lg text-sm flex ${className}`}>
             <div className="w-1/2">
-                <label htmlFor={amountInputId} className="text-black/40 mb-2 inline-block">
+                <label htmlFor={amountInputId}  className="text-black/40 mb-2 inline-block">
                     {label}
                 </label>
                 <input
-                  id={amountInputId}   
+                    id={amountInputId}
                     className="outline-none w-full bg-transparent py-1.5"
                     type="number"
                     placeholder="Amount"
                     disabled={amountDisable}
                     value={amount}
-                    onChangeCapture={(e) => onAmountChange && onAmountChange(Number(e.target.value))}
+                    onChange={(e) => onAmountChange && onAmountChange(Number(e.target.value))}
                 />
             </div>
             <div className="w-1/2 flex flex-wrap justify-end text-right">
@@ -38,12 +38,12 @@ function InputBox({
                     disabled={currencyDisable}
                 >
                     
-                      {currencyOptions.map((currency) => (
-                      <option key={currency} value={currency}>
-                        {currency}                
-                              </option>
-                      ))}     
-
+                        {currencyOptions.map((currency) => (
+                            <option key={currency} value={currency}>
+                            {currency}
+                            </option>
+                        ))}
+                
                 </select>
             </div>
         </div>
